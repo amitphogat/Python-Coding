@@ -1,0 +1,29 @@
+# Binary Search Algo
+def binarySearch(arr, key):
+    if(type(arr) != list):
+        print("Please Provide List")
+    else:
+        arr.sort()
+        l=0
+        h=len(arr)
+
+        while l<h:
+            mid = int((l+h)/2)
+            if (key ==arr[0]): 
+                return 0
+                break
+            elif (key == arr[-1]):
+                return h-1
+                break
+            elif (key == arr[mid]):
+                return mid
+                break
+            elif (key > arr[mid]):
+                l = mid+1 
+            
+                continue
+            elif (key < arr[mid]):
+                h = mid-1
+                
+                continue
+        return "Not found"
