@@ -1,0 +1,18 @@
+#Bubble sort
+def bubble_sort(arr):
+    size = len(arr)
+    
+    
+    for j in range(size-1):
+        swapped = False
+        for i in range(size-1-j): # It takes O(n2) time when range(size-1) --> (size-1-j)
+            if arr[i]> arr[i+1]:
+                tmp = arr[i]
+                arr[i] = arr[i+1] # if the array is already sorted, then 
+                arr[i+1] = tmp
+                swapped = True # improving the efficiency, O(n) when array is already sorted
+        if not swapped:
+            break
+            
+    return arr
+# We can use this sorting algo for sorting string too, as in python the > symbol can be used in strings
