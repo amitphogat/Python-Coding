@@ -1,0 +1,23 @@
+def partition(arr, l, r):
+    i = l
+    j = r-1
+    pivot = arr[r]
+    print(pivot)
+    while i<j:
+        while i<r and arr[i]<pivot:
+            i+=1
+        while j>l and arr[j] >=pivot:
+            j-=1
+        if i<j:
+            arr[i], arr[j] = arr[j], arr[i]
+    if arr[i]>pivot:
+        arr[i], arr[r] = arr[r], arr[i]
+    return i
+    
+    # Quicksort
+def quicksort(arr, l, r):
+    if l<r:
+        partition_pos = partition(arr, l, r)
+        quicksort(arr,l,partition_pos-1)
+        quicksort(arr, partition_pos+1, r)
+    return arr
