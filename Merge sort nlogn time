@@ -1,0 +1,34 @@
+# Merge Sort: sorting algorithm with nlogn time
+def merge_sort(arr):
+    if len(arr) > 1:
+        arr_left = arr[:len(arr)//2]
+        arr_right = arr[len(arr)//2:]
+        
+        
+        merge_sort(arr_left)
+        merge_sort(arr_right)
+        
+        
+        i = 0
+        j = 0
+        k = 0
+        
+        while i < len(arr_left) and j < len(arr_right):
+            if arr_left[i]<arr_right[j]:
+                arr[k] = arr_left[i]
+                i+=1
+            else:
+                arr[k] = arr_right[j]
+                j+=1
+            k+=1
+            
+        while i <len(arr_left):
+            arr[k] = arr_left[i]
+            i+=1
+            k+=1
+        while j < len(arr_right):
+            arr[k] = arr_right[j]
+            j+=1
+            k+=1
+    
+    return arr
